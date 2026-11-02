@@ -1,5 +1,24 @@
 # Development log
 
+## [2026-11-02 12:00] - FIX
+
+### Changes
+- Added `readonly: true` to the frontmatter of `agents/security-reviewer.md`.
+- `README.md`: the host support table says how each host keeps the agent read-only.
+
+### Files Modified
+- `agents/security-reviewer.md`, `README.md`, `CHANGELOG.md`, `DEVELOPMENT.md`
+
+### Rationale
+Cursor's subagent reference (https://cursor.com/docs/agent/subagents) lists `name`, `description`, `model`, `readonly`, and `is_background` as frontmatter, and no `tools` field: subagents inherit every tool of the parent, so the `tools: Read, Grep, Glob, Bash` allowlist did not keep the reviewer read-only on Cursor. `readonly: true` is Cursor's documented way to remove write access. Claude Code keeps using `tools`; `make validate` (`claude plugin validate --strict`) accepts the extra key.
+
+### Breaking Changes
+None.
+
+### Next Steps
+- Install the plugin in Cursor and check that the agent cannot edit a file.
+- `scripts/sync/tests/test_cursor_plugin.py`, cited in the previous entry and in `CHANGELOG.md`, is not in the repository; write it or remove the mentions.
+
 ## [2026-11-01 19:30] - FEATURE
 
 ### Changes

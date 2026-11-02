@@ -32,7 +32,7 @@ Each skill is measured with evals against a baseline without the kit, so a rule 
 | --- | --- | --- | --- | --- |
 | Skills | Agent Skills (`SKILL.md`, portable frontmatter only) | Yes, through the plugin | Yes, through the Cursor plugin (`.cursor-plugin/`) | Yes: copy the skill folders into the host's skills folder (below) |
 | `protect_secrets` hook | Python script reading the tool call as JSON; registered in `hooks/hooks.json` | Yes, through the plugin | Not wired yet: Cursor uses other event names and tool names | Not wired yet: each host has its own hook events and registration file |
-| `security-reviewer` agent | `agents/security-reviewer.md` | Yes, as a subagent | Yes, as a subagent through the Cursor plugin | Not wired yet; on any host, ask the agent to follow that file as instructions |
+| `security-reviewer` agent | `agents/security-reviewer.md` | Yes, as a subagent; its `tools` list keeps it read-only | Yes, as a subagent through the Cursor plugin; `readonly: true` keeps it read-only, since Cursor ignores `tools` | Not wired yet; on any host, ask the agent to follow that file as instructions |
 | Evals | `claude plugin eval` | Yes | Measured on Claude Code only | Measured on Claude Code only |
 
 ## Install

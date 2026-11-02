@@ -9,6 +9,9 @@ All notable changes to `ml-ai-dev-kit`. The format follows [Keep a Changelog](ht
 - README section *Cursor* with three install routes (local, team marketplace, public marketplace) and update steps.
 - Test that the Cursor manifest has the same name and version as the Claude one and that its paths exist.
 
+### Changed
+- `security-reviewer` subagent: `readonly: true` in its frontmatter, so Cursor runs it without write access. Cursor does not read the `tools` list, and its subagents otherwise inherit every tool of the parent agent.
+
 ## [0.2.0] - 2026-10-30
 
 ### Added
